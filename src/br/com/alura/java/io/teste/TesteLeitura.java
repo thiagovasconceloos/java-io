@@ -19,11 +19,7 @@ public class TesteLeitura {
         String linha = br.readLine();
         
         
-        //mostrand cada linha do arquivo
-        while(linha != null) {
-                System.out.println(linha);
-                linha = br.readLine();
-        }
+     
 
         System.out.println(linha);
 
