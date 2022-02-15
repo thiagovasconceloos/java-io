@@ -3,7 +3,7 @@ package br.com.alura.java.io.teste;
 import java.io.*;
 
 
-public class TesteLeitura {
+public class TesteCopiaArquivo {
 
 	public static void main(String[] args) throws IOException  {
 		
@@ -14,21 +14,26 @@ public class TesteLeitura {
         // transformando os bites em caracteres
         BufferedReader br = new BufferedReader(isr);
         
-		
+        OutputStream fos = new FileOutputStream("lorem2.txt");
+    	Writer osw = new OutputStreamWriter(fos);
+        BufferedWriter bw = new BufferedWriter (osw);
+        
+    	
 		// variavel linha 
         String linha = br.readLine();
         
-        
         //mostrand cada linha do arquivo
-        while(linha != null) {
-                System.out.println(linha);
+        while(linha != null && !linha.isEmpty()) {
+                bw.write(linha);
+                bw.newLine();
+                bw.flush();
                 linha = br.readLine();
         }
 
-        System.out.println(linha);
+       
 
         br.close();
-      
+        bw.close();
 
 
 	
